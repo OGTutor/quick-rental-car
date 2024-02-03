@@ -2,67 +2,57 @@ import { UserButton } from '@clerk/nextjs';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
+import CustomButton from './CustomButton';
+
+const paths = [
+	{
+		title: 'Home',
+		path: '/',
+	},
+	{
+		title: 'History',
+		path: '/history',
+	},
+	{
+		title: 'Contact Us',
+		path: '/contact-us',
+	},
+];
 
 const Navbar: FC = () => {
 	return (
-		<div
-			className="flex items-center justify-between p-3
-			px-24 shadow-sm shadow-primaryColor
-			lg:rounded-b-full md:rounded-b-full rounded-b-lg
-			border-b-[1px] border-primaryColor"
+		<nav
+			className="flex items-center justify-between lg:p-3
+			lg:px-24 shadow-sm shadow-primaryColor
+			max-md:rounded-b-lg rounded-b-full
+			border-b-[1px] border-primaryColor md:p-2 md:px-20
+			p-1 px-10"
 		>
-			<Link href="/">
+			<Link
+				href="/"
+				className="flex justify-center
+				items-center"
+			>
 				<Image
 					src="/images/logo.png"
-					alt="logo"
+					alt="Quick Car Rental Logo"
 					width={100}
 					height={100}
 					draggable={false}
+					className="object-contain"
 				/>
 			</Link>
-
 			<div className="hidden md:flex gap-5">
-				<h2
-					className="hover:bg-primaryColor
-								px-3 cursor-pointer p-2
-								rounded-full hover:text-black
-								font-bold text-primaryColor
-								transition-all shadow-sm
-								shadow-white animate-pulse
-								hover:animate-none hover:shadow-primaryColor
-								hover:scale-105"
-				>
-					Home
-				</h2>
-				<h2
-					className="hover:bg-primaryColor
-								px-3 cursor-pointer p-2
-								rounded-full hover:text-black
-								font-bold text-primaryColor
-								transition-all shadow-sm
-								shadow-white animate-pulse
-								hover:animate-none hover:shadow-primaryColor
-								hover:scale-105"
-				>
-					History
-				</h2>
-				<h2
-					className="hover:bg-primaryColor
-								px-3 cursor-pointer p-2
-								rounded-full hover:text-black
-								font-bold text-primaryColor
-								transition-all shadow-sm
-								shadow-white animate-pulse
-								hover:animate-none hover:shadow-primaryColor
-								hover:scale-105"
-				>
-					Contact Us
-				</h2>
+				{paths.map(({ title, path }) => (
+					<Link href={path} key={path}>
+						<CustomButton title={title} />
+					</Link>
+				))}
 			</div>
-			<div className="hover:shadow-md shadow-primaryColor rounded-full">
+			<div>
 				<UserButton />
 			</div>
-		</div>
+		</nav>
 	);
 };
 

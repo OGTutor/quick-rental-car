@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import {
 	ClerkProvider,
@@ -13,7 +14,7 @@ const inter = Single_Day({ weight: '400' });
 
 export const metadata: Metadata = {
 	title: 'Quick Rental Car',
-	description: 'Quick Rental Car',
+	description: 'Discover the best cars in the world.',
 };
 
 export default function RootLayout({
@@ -24,16 +25,27 @@ export default function RootLayout({
 	return (
 		<ClerkProvider>
 			<html lang="en" className="h-full">
-				<body className={inter.className}>
-					<main className="overflow-hidden">
-						<SignedIn>
+				<body className={`${inter.className} relative`}>
+					<SignedIn>
+						<header className="w-full absolute z-10">
 							<Navbar />
+						</header>
+						<main className="overflow-hidden">
 							<div>{children}</div>
-						</SignedIn>
-						<SignedOut>
-							<RedirectToSignIn />
-						</SignedOut>
-					</main>
+						</main>
+						<footer
+							className="w-full flex flex-col
+							text-white mt-5 border-t-[1px]
+							border-primaryColor shadow-sm
+							shadow-primaryColor
+							rounded-t-lg 3xl:rounded-t-full"
+						>
+							<Footer />
+						</footer>
+					</SignedIn>
+					<SignedOut>
+						<RedirectToSignIn />
+					</SignedOut>
 				</body>
 			</html>
 		</ClerkProvider>

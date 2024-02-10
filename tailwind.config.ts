@@ -11,6 +11,12 @@ const config: Config = {
 			colors: {
 				primaryColor: '#fed000',
 			},
+			screens: {
+				'3xl': '1920px',
+			},
+			backgroundImage: {
+				pattern: "url('/images/pattern.jpg')",
+			},
 		},
 	},
 	plugins: [],

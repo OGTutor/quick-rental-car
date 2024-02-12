@@ -12,10 +12,12 @@ const config: Config = {
 				primaryColor: '#fed000',
 			},
 			screens: {
+				ms: '450px',
 				'3xl': '1920px',
 			},
 			backgroundImage: {
 				pattern: "url('/images/pattern.jpg')",
+				patternSecond: "url('/images/patternSecond.jpg')",
 			},
 		},
 	},

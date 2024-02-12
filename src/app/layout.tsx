@@ -30,9 +30,7 @@ export default function RootLayout({
 						<header className="w-full absolute z-10">
 							<Navbar />
 						</header>
-						<main className="overflow-hidden">
-							<div>{children}</div>
-						</main>
+						<main className="overflow-hidden">{children}</main>
 						<footer
 							className="w-full flex flex-col
 							text-white mt-5 border-t-[1px]

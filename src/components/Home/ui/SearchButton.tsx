@@ -7,7 +7,10 @@ interface SearchButtonProps {
 
 const SearchButton: FC<SearchButtonProps> = ({ otherClasses }) => {
 	return (
-		<button type="submit" className={`-ml-3 z-10 ${otherClasses}`}>
+		<button
+			type="submit"
+			className={`z-10 hover:scale-125 transition-all ${otherClasses}`}
+		>
 			<Image
 				src="/images/magnifying-glass.svg"
 				alt="magnifying glass"

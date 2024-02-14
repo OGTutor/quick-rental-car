@@ -6,6 +6,11 @@
 	--foreground-rgb: 0, 0, 0;
 	--background-start-rgb: 214, 219, 220;
 	--background-end-rgb: 255, 255, 255;
+	--toastify-color-progress-error: red;
+	--toastify-icon-color-error: red;
+	--toastify-text-color-dark: #fed000;
+	--toastify-color-dark: black;
+	--toastify-font-family: 'Single Day', cursive;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -33,6 +38,15 @@
 	background-color: #555;
 }
 
+.MuiAutocomplete-inputRoot {
+	border-top-left-radius: 9999px !important;
+	border-bottom-left-radius: 9999px !important;
+}
+
+.MuiAutocomplete-paper {
+	border-radius: 24px !important;
+}
+
 body {
 	color: rgb(var(--foreground-rgb));
 	background: linear-gradient(
@@ -46,5 +60,12 @@ body {
 @layer utilities {
 	.text-balance {
 		text-wrap: balance;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.MuiAutocomplete-inputRoot {
+		border-top-left-radius: 0px !important;
+		border-bottom-left-radius: 0px !important;
 	}
 }

@@ -1,10 +1,10 @@
 'use client';
 
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React, { FC, useState } from 'react';
 import { toast } from 'react-toastify';
 import SearchManufacturer from './SearchManufacturer';
+import SearchModel from './SearchModel';
 import SearchButton from './ui/SearchButton';
 
 const SearchBar: FC = () => {
@@ -67,34 +67,47 @@ const SearchBar: FC = () => {
 					manufacturer={manufacturer}
 					setManufacturer={setManufacturer}
 				/>
-				<SearchButton otherClasses="sm:hidden" />
+				<div
+					className="border border-black
+					rounded-r-full h-[56px] w-[75px]
+					flex justify-center items-center
+					shadow-inner shadow-white
+					hover:shadow-primaryColor
+					sm:hidden transition-all
+					hover:shadow-md"
+				>
+					<SearchButton otherClasses="sm:hidden" />
+				</div>
 			</div>
 			<div
 				className="flex-1 max-sm:w-full
 				flex justify-start items-center
 				relative"
 			>
-				<Image
-					src="/images/model-icon.png"
-					alt="car model"
-					width={25}
-					height={25}
-					className="absolute w-[20px] h-[20px] ml-4"
-				/>
-				<input
-					type="text"
-					name="model"
-					value={model}
-					onChange={(e) => setModel(e.target.value)}
-					placeholder="Model"
-					className="w-full h-[48px] pl-12 p-4
-					bg-black rounded-r-full
-					max-sm:rounded-full outline-none
-					cursor-pointer text-xl shadow-sm shadow-white"
-				/>
-				<SearchButton otherClasses="sm:hidden" />
+				<SearchModel model={model} setModel={setModel} />
+				<div
+					className="border border-black
+					rounded-r-full h-[56px] w-[75px]
+					flex justify-center items-center
+					shadow-inner shadow-white
+					hover:shadow-primaryColor
+					sm:hidden transition-all
+					hover:shadow-md"
+				>
+					<SearchButton otherClasses="sm:hidden" />
+				</div>
 			</div>
-			<SearchButton otherClasses="max-sm:hidden" />
+			<div
+				className="border border-black
+				rounded-r-full h-[56px] w-[75px]
+				flex justify-center items-center
+				shadow-inner shadow-white
+				hover:shadow-primaryColor
+				max-sm:hidden transition-all
+				hover:shadow-md"
+			>
+				<SearchButton otherClasses="max-sm:hidden" />
+			</div>
 		</form>
 	);
 };

@@ -40,9 +40,7 @@ const customTheme = (outerTheme: Theme) =>
 					renderOption: (props, option, state, ownerState) => (
 						<Box
 							sx={{
-								// borderRadius: '24px',
-								borderTopLeftRadius: '9999px',
-								borderBottomLeftRadius: '9999px',
+								borderRadius: '24px',
 								margin: '5px',
 								[`&.${autocompleteClasses.option}`]: {
 									paddingLeft: '15px',
@@ -76,37 +74,32 @@ const SearchManufacturer: FC<SearchManufacturerProps> = ({
 				);
 
 	return (
-		<div
-			className="flex-1 max-sm:w-full
-			flex justify-start items-center"
-		>
-			<ThemeProvider theme={customTheme}>
-				<div className="relative w-full">
-					<div className="absolute top-[13px] right-[65px]">
-						<Image
-							draggable={false}
-							unoptimized
-							quality={100}
-							src="/images/car-logo.svg"
-							width={30}
-							height={30}
-							alt="Car Logo"
-						/>
-					</div>
-					<Autocomplete
-						value={manufacturer}
-						onChange={(e, newValue) =>
-							setManufacturer(newValue || '')
-						}
-						disablePortal
-						options={filteredManufacturers}
-						renderInput={(params) => (
-							<TextField {...params} label="Manufacturer" />
-						)}
+		<ThemeProvider theme={customTheme}>
+			<div className="relative w-full">
+				<div className="absolute top-[13px] right-[65px]">
+					<Image
+						draggable={false}
+						unoptimized
+						quality={100}
+						src="/images/car-logo.svg"
+						width={30}
+						height={30}
+						alt="Car Logo"
+						className="max-md:hidden"
 					/>
 				</div>
-			</ThemeProvider>
-		</div>
+				<Autocomplete
+					fullWidth
+					value={manufacturer}
+					onChange={(e, newValue) => setManufacturer(newValue || '')}
+					disablePortal
+					options={filteredManufacturers}
+					renderInput={(params) => (
+						<TextField {...params} label="Manufacturer" />
+					)}
+				/>
+			</div>
+		</ThemeProvider>
 	);
 };
 

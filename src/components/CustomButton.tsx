@@ -1,13 +1,17 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 import { FC, MouseEventHandler } from 'react';
 
 interface CustomButtonProps {
 	title: string;
 	containerStyles?: string;
+	textStyles?: string;
+	rightIcon?: string;
 	handleClick?: MouseEventHandler<HTMLButtonElement>;
 	btnType?: 'button' | 'submit';
+	isDisabled?: boolean;
 }
 
 const CustomButton: FC<CustomButtonProps> = ({
@@ -15,6 +19,9 @@ const CustomButton: FC<CustomButtonProps> = ({
 	containerStyles,
 	handleClick,
 	btnType = 'button',
+	textStyles,
+	rightIcon,
+	isDisabled,
 }) => {
 	return (
 		<button
@@ -35,7 +42,17 @@ const CustomButton: FC<CustomButtonProps> = ({
 			)}
 			onClick={handleClick}
 		>
-			<span className={`flex-1 px-4`}>{title}</span>
+			<span className={`flex-1 px-4 ${textStyles}`}>{title}</span>
+			{rightIcon && (
+				<div className="relative w-6 h-6">
+					<Image
+						src={rightIcon}
+						alt="right icon"
+						fill
+						className="object-contain"
+					/>
+				</div>
+			)}
 		</button>
 	);
 };

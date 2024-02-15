@@ -68,13 +68,11 @@ const SearchBar: FC = () => {
 					setManufacturer={setManufacturer}
 				/>
 				<div
-					className="border border-black
-					rounded-r-full h-[56px] w-[75px]
-					flex justify-center items-center
-					shadow-inner shadow-white
-					hover:shadow-primaryColor
-					sm:hidden transition-all
-					hover:shadow-md"
+					className="border-r border-y
+				border-y-customGray border-r-customGray
+				rounded-r-full h-[56px] w-[175px]
+				flex justify-center items-center
+				transition-all -ml-1 sm:hidden"
 				>
 					<SearchButton otherClasses="sm:hidden" />
 				</div>
@@ -86,25 +84,21 @@ const SearchBar: FC = () => {
 			>
 				<SearchModel model={model} setModel={setModel} />
 				<div
-					className="border border-black
-					rounded-r-full h-[56px] w-[75px]
-					flex justify-center items-center
-					shadow-inner shadow-white
-					hover:shadow-primaryColor
-					sm:hidden transition-all
-					hover:shadow-md"
+					className="border-r border-y
+				border-y-customGray border-r-customGray
+				rounded-r-full h-[56px] w-[175px]
+				flex justify-center items-center
+				transition-all -ml-1 sm:hidden"
 				>
 					<SearchButton otherClasses="sm:hidden" />
 				</div>
 			</div>
 			<div
-				className="border border-black
-				rounded-r-full h-[56px] w-[75px]
+				className="border-r border-y
+				border-y-customGray border-r-customGray
+				rounded-r-full h-[56px] w-[175px]
 				flex justify-center items-center
-				shadow-inner shadow-white
-				hover:shadow-primaryColor
-				max-sm:hidden transition-all
-				hover:shadow-md"
+				max-sm:hidden transition-all -ml-1"
 			>
 				<SearchButton otherClasses="max-sm:hidden" />
 			</div>

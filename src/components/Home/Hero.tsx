@@ -73,8 +73,8 @@ const Hero: FC = () => {
 			>
 				<div
 					className="relative
-					xl:w-full w-[90%]
-					xl:h-full h-[590px] z-0"
+					w-full xl:h-full
+					h-[590px] z-0"
 				>
 					<Image
 						src="/images/hero.png"

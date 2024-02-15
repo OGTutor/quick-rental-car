@@ -37,7 +37,7 @@ const SearchModel: FC<SearchModelProps> = ({ model, setModel }) => {
 	return (
 		<div className="relative w-full">
 			<ThemeProvider theme={customTheme}>
-				<div className="absolute top-[11px] right-[35px]">
+				<div className="absolute top-[11px] right-[35px] max-sm:hidden">
 					<Image
 						draggable={false}
 						unoptimized
@@ -55,9 +55,6 @@ const SearchModel: FC<SearchModelProps> = ({ model, setModel }) => {
 					id="outlined-basic"
 					label="Model"
 					variant="outlined"
-					sx={{
-						width: 'fullscreen',
-					}}
 				/>
 			</ThemeProvider>
 		</div>

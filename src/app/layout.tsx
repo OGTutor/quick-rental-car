@@ -8,6 +8,8 @@ import {
 } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 import { Single_Day } from 'next/font/google';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './globals.css';
 
 const inter = Single_Day({ weight: '400' });
@@ -30,7 +32,12 @@ export default function RootLayout({
 						<header className="w-full absolute z-10">
 							<Navbar />
 						</header>
-						<main className="overflow-hidden">{children}</main>
+						<main className="overflow-hidden">
+							<div>
+								<ToastContainer />
+								{children}
+							</div>
+						</main>
 						<footer
 							className="w-full flex flex-col
 							text-white mt-5 border-t-[1px]

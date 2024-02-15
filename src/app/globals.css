@@ -47,6 +47,10 @@
 	border-radius: 24px !important;
 }
 
+.MuiPaper-root {
+	border-radius: 24px !important;
+}
+
 body {
 	color: rgb(var(--foreground-rgb));
 	background: linear-gradient(

@@ -18,6 +18,7 @@ const Footer: FC = () => {
 				>
 					<Link href="/">
 						<Image
+							priority
 							src="/images/logo.png"
 							alt="Quick Car Rental Logo"
 							width={100}

@@ -34,6 +34,7 @@ const Navbar: FC = () => {
 				items-center"
 			>
 				<Image
+					priority
 					src="/images/logo.png"
 					alt="Quick Car Rental Logo"
 					width={100}

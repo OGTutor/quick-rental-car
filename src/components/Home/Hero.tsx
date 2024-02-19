@@ -5,7 +5,13 @@ import { FC } from 'react';
 import CustomButton from '../CustomButton';
 
 const Hero: FC = () => {
-	const handleScroll = () => {};
+	const handleScroll = () => {
+		const nextSection = document.getElementById('discover');
+
+		if (nextSection) {
+			nextSection.scrollIntoView({ behavior: 'smooth' });
+		}
+	};
 
 	return (
 		<div
@@ -64,7 +70,11 @@ const Hero: FC = () => {
 						Car Now{' '}
 					</span>
 				</p>
-				<CustomButton title="Explore Cars" handleClick={handleScroll} />
+				<CustomButton
+					title="Explore Cars"
+					handleClick={handleScroll}
+					containerStyles="mt-5"
+				/>
 			</div>
 			<div
 				className="xl:flex-[1.5] flex

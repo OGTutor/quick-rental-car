@@ -11,7 +11,7 @@ interface CustomButtonProps {
 	rightIcon?: string;
 	handleClick?: MouseEventHandler<HTMLButtonElement>;
 	btnType?: 'button' | 'submit';
-	isDisabled?: boolean;
+	isActive?: boolean;
 }
 
 const CustomButton: FC<CustomButtonProps> = ({
@@ -21,7 +21,7 @@ const CustomButton: FC<CustomButtonProps> = ({
 	btnType = 'button',
 	textStyles,
 	rightIcon,
-	isDisabled,
+	isActive,
 }) => {
 	return (
 		<button
@@ -38,7 +38,10 @@ const CustomButton: FC<CustomButtonProps> = ({
 				shadow-white animate-pulse
 				hover:animate-none hover:shadow-primaryColor
 				hover:scale-105 ${containerStyles}`,
-				{}
+				{
+					'animate-none shadow-primaryColor scale-105 text-black bg-primaryColor':
+						isActive,
+				}
 			)}
 			onClick={handleClick}
 		>

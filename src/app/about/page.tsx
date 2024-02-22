@@ -1,9 +1,9 @@
-import AboutContactCard from '@/components/About/AboutContactCard';
 import AboutDetails from '@/components/About/AboutDetails';
 import AboutHero from '@/components/About/AboutHero';
 import AboutSteps from '@/components/About/AboutSteps';
+import ContactCard from '@/components/ContactCard';
 
-export default async function About() {
+export default function About() {
 	return (
 		<div
 			className="flex xl:flex-row flex-col
@@ -20,7 +20,7 @@ export default async function About() {
 				<AboutHero />
 				<AboutDetails />
 				<AboutSteps />
-				<AboutContactCard />
+				<ContactCard />
 			</div>
 		</div>
 	);

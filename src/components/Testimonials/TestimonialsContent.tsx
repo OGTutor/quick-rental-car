@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import ContactCard from '../ContactCard';
 import ReviewCard from './ui/ReviewCard';
 
 interface Testimonials {
@@ -39,11 +40,12 @@ const TestimonialsContent: FC<TestimonialsContentProps> = ({
 				our service and results, and they`re eager to share their
 				positive experiences with you.
 			</p>
-			<div className="flex flex-wrap justify-center mt-10">
+			<div className="flex flex-wrap justify-center my-10">
 				{testimonials.map((testimonial, idx) => (
 					<ReviewCard key={idx} {...testimonial} />
 				))}
 			</div>
+			<ContactCard />
 		</>
 	);
 };

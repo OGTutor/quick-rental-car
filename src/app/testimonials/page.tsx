@@ -59,7 +59,7 @@ const testimonials = [
 	},
 ];
 
-export default async function Testimonials() {
+export default function Testimonials() {
 	return (
 		<div
 			className="flex flex-col

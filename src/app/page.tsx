@@ -1,3 +1,4 @@
+import ContactCard from '@/components/ContactCard';
 import CarCard from '@/components/Home/CarCard';
 import CustomFilter from '@/components/Home/CustomFilter';
 import Hero from '@/components/Home/Hero';
@@ -95,6 +96,9 @@ export default async function Home({ searchParams }: HomeProps) {
 						<p>{allCars?.message}</p>
 					</div>
 				)}
+				<div className="mt-7">
+					<ContactCard />
+				</div>
 			</div>
 			{/* <SearchInput />
 			<CarsFiltersOption /> */}

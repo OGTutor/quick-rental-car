@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import ContactButton from '../ContactButton';
+import ContactButton from './ContactButton';
 
-const AboutContactCard: FC = () => {
+const ContactCard: FC = () => {
 	return (
 		<div
 			className="h-60
@@ -42,4 +42,4 @@ const AboutContactCard: FC = () => {
 	);
 };
 
-export default AboutContactCard;
+export default ContactCard;

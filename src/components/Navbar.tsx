@@ -1,8 +1,12 @@
+'use client';
+
 import { UserButton } from '@clerk/nextjs';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { FC } from 'react';
 import CustomButton from './CustomButton';
+import MobileMenu from './MobileMenu';
 
 const paths = [
 	{
@@ -10,16 +14,18 @@ const paths = [
 		path: '/',
 	},
 	{
-		title: 'History',
-		path: '/history',
+		title: 'About',
+		path: '/about',
 	},
 	{
-		title: 'Contact Us',
-		path: '/contact-us',
+		title: 'Testimonials',
+		path: '/testimonials',
 	},
 ];
 
 const Navbar: FC = () => {
+	const pathname = usePathname();
+
 	return (
 		<nav
 			className="flex items-center justify-between lg:p-3
@@ -46,9 +52,15 @@ const Navbar: FC = () => {
 			<div className="hidden md:flex gap-5">
 				{paths.map(({ title, path }) => (
 					<Link href={path} key={path}>
-						<CustomButton title={title} />
+						<CustomButton
+							isActive={pathname === path}
+							title={title}
+						/>
 					</Link>
 				))}
+			</div>
+			<div className="hidden max-md:flex">
+				<MobileMenu currentPage={pathname} paths={paths} />
 			</div>
 			<div>
 				<UserButton />

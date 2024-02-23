@@ -6,7 +6,9 @@ import Fade from '@mui/material/Fade';
 import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
+import Link from 'next/link';
 import { FC } from 'react';
+import CustomButton from '../CustomButton';
 
 interface CarDetailsProps {
 	isOpen: boolean;
@@ -161,13 +163,42 @@ const CarDetails: FC<CarDetailsProps> = ({ car, closeModal, isOpen }) => {
 									component="h2"
 									className="text-primaryColor"
 								>
-									<h2
-										className="font-semibold
-										max-sm:text-base text-xl
-										capitalize"
-									>
-										{car.make} {car.model}
-									</h2>
+									<div className="grid grid-cols-2">
+										<div
+											className="flex items-center
+											justify-start"
+										>
+											<h2
+												className="font-semibold
+												max-sm:text-base text-xl
+												capitalize"
+											>
+												{car.make} {car.model}
+											</h2>
+										</div>
+										<div
+											className="flex items-center
+											justify-end"
+										>
+											<Link
+												href={`/booking-car
+												?make=${encodeURIComponent(car.make)}
+												&year=${encodeURIComponent(car.year)}
+												&model=${encodeURIComponent(car.model)}
+												&limit=1&fuel_type=
+												${encodeURIComponent(car.fuel_type)}`}
+												onClick={closeModal}
+											>
+												<CustomButton
+													title="Go to book"
+													textStyles="max-lg:text-sm text-xl"
+													containerStyles="max-md:p-0
+													max-md:px-0 md:p-1 md:px-1"
+												/>
+											</Link>
+										</div>
+									</div>
+
 									<div
 										className="mt-3 flex
 										flex-wrap gap-4

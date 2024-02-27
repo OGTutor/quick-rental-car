@@ -191,14 +191,13 @@ const CarDetails: FC<CarDetailsProps> = ({ car, closeModal, isOpen }) => {
 											>
 												<CustomButton
 													title="Go to book"
-													textStyles="max-lg:text-sm text-xl"
-													containerStyles="max-md:p-0
-													max-md:px-0 md:p-1 md:px-1"
+													textStyles="max-md:text-sm text-xl"
+													containerStyles="max-md:p-1
+													max-md:px-1"
 												/>
 											</Link>
 										</div>
 									</div>
-
 									<div
 										className="mt-3 flex
 										flex-wrap gap-4

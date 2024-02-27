@@ -69,10 +69,10 @@ const SearchBar: FC = () => {
 				/>
 				<div
 					className="border-r border-y
-				border-y-customGray border-r-customGray
-				rounded-r-full h-[56px] w-[175px]
-				flex justify-center items-center
-				transition-all -ml-1 sm:hidden"
+					border-y-customGray border-r-customGray
+					rounded-r-full h-[56px] w-[175px]
+					flex justify-center items-center
+					transition-all -ml-1 sm:hidden"
 				>
 					<SearchButton otherClasses="sm:hidden" />
 				</div>
@@ -85,10 +85,10 @@ const SearchBar: FC = () => {
 				<SearchModel model={model} setModel={setModel} />
 				<div
 					className="border-r border-y
-				border-y-customGray border-r-customGray
-				rounded-r-full h-[56px] w-[175px]
-				flex justify-center items-center
-				transition-all -ml-1 sm:hidden"
+					border-y-customGray border-r-customGray
+					rounded-r-full h-[56px] w-[175px]
+					flex justify-center items-center
+					transition-all -ml-1 sm:hidden"
 				>
 					<SearchButton otherClasses="sm:hidden" />
 				</div>

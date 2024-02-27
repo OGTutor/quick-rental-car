@@ -17,10 +17,10 @@ const BookingCarCard: FC<BookingCarCardProps> = ({ car }) => {
 			className="flex flex-col p-6
 			justify-center items-start
 			text-primaryColor bg-black
-			hover:bg-primaryColor hover:shadow-md
-			rounded-3xl group transition-all
-			hover:scale-[1.02] shadow-sm shadow-white
-			hover:shadow-primaryColor hover:text-black"
+			hover:shadow-md rounded-3xl
+			group transition-all hover:scale-[1.02]
+			shadow-sm shadow-white
+			hover:shadow-primaryColor"
 		>
 			<div
 				className="w-full flex 
@@ -73,7 +73,7 @@ const BookingCarCard: FC<BookingCarCardProps> = ({ car }) => {
 				mt-2"
 			>
 				<div
-					className="flex group-hover:invisible
+					className="flex
 					w-full justify-between"
 				>
 					<div

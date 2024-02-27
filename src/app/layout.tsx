@@ -2,6 +2,7 @@ import Footer from '@/components/Footer';
 import MuiThemeProvider from '@/components/MuiThemeProvider';
 import Navbar from '@/components/Navbar';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
+import { UserLocationProvider } from '@/context/UserLocationContext';
 import {
 	ClerkProvider,
 	RedirectToSignIn,
@@ -41,25 +42,27 @@ export default function RootLayout({
 				<html lang="en" className="h-full">
 					<body className={`${inter.className} relative`}>
 						<SignedIn>
-							<header className="w-full absolute z-10">
-								<Navbar />
-							</header>
-							<main className="overflow-hidden">
-								<div>
-									<ToastContainer />
-									{children}
-								</div>
-							</main>
-							<ScrollToTopButton />
-							<footer
-								className="w-full flex flex-col
+							<UserLocationProvider>
+								<header className="w-full absolute z-10">
+									<Navbar />
+								</header>
+								<main className="overflow-hidden">
+									<div>
+										<ToastContainer />
+										{children}
+									</div>
+								</main>
+								<ScrollToTopButton />
+								<footer
+									className="w-full flex flex-col
 								text-white mt-5 border-t-[1px]
 								border-primaryColor shadow-sm
 								shadow-primaryColor
 								rounded-t-lg 3xl:rounded-t-full"
-							>
-								<Footer />
-							</footer>
+								>
+									<Footer />
+								</footer>
+							</UserLocationProvider>
 						</SignedIn>
 						<SignedOut>
 							<RedirectToSignIn />

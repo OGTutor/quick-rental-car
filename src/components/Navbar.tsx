@@ -59,7 +59,10 @@ const Navbar: FC = () => {
 					</Link>
 				))}
 			</div>
-			<div className="hidden max-md:flex">
+			<div
+				className="hidden max-md:flex justify-center
+				items-center"
+			>
 				<MobileMenu currentPage={pathname} paths={paths} />
 			</div>
 			<div>

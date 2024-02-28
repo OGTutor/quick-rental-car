@@ -1,29 +1,67 @@
 'use client';
 
+import { useLocation } from '@/context/UserLocationContext';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import Image from 'next/image';
-import { FC, useEffect, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import Map, { Marker } from 'react-map-gl';
+import { toast } from 'react-toastify';
 
 const BookingMapBox: FC = () => {
+	const { location } = useLocation();
 	const [userLocation, setUserLocation] = useState<any>();
+
+	const getUserLocation = useCallback(async () => {
+		if (location) {
+			try {
+				const response = await fetch(
+					`https://api.mapbox.com/geocoding/v5/mapbox.places/
+					${location}.json?access_token=
+					${process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}`
+				);
+				const data = await response.json();
+
+				if (data.features && data.features.length > 0) {
+					const [longitude, latitude] = data.features[0].center;
+
+					setUserLocation({
+						lng: longitude,
+						lat: latitude,
+					});
+				} else {
+					setTimeout(() => {
+						toast.error('The address was not found!', {
+							position: 'top-center',
+							theme: 'dark',
+							className: `rounded-3xl shadow-sm
+							shadow-white
+							hover:shadow-primaryColor
+							hover:shadow-md p-3`,
+						});
+					}, 5000);
+
+					console.error('No geocoding results');
+				}
+			} catch (error) {
+				console.error('Error getting coordinates:', error);
+			}
+		} else {
+			navigator.geolocation.getCurrentPosition(function (pos) {
+				setUserLocation({
+					lat: pos.coords.latitude,
+					lng: pos.coords.longitude,
+				});
+			});
+		}
+	}, [location]);
 
 	useEffect(() => {
 		getUserLocation();
-	}, [userLocation]);
-
-	const getUserLocation = () => {
-		navigator.geolocation.getCurrentPosition(function (pos) {
-			setUserLocation({
-				lat: pos.coords.latitude,
-				lng: pos.coords.longitude,
-			});
-		});
-	};
+	}, [getUserLocation]);
 
 	return (
 		<>
-			{userLocation ? (
+			{userLocation || location ? (
 				<Map
 					mapboxAccessToken={
 						process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN
@@ -46,12 +84,14 @@ const BookingMapBox: FC = () => {
 						latitude={userLocation?.lat}
 						anchor="bottom"
 					>
-						<Image
-							src="/images/pin.png"
-							width={40}
-							height={40}
-							alt="Location Pin"
-						/>
+						<div className="relative h-10 w-10">
+							<Image
+								src="/images/pin.png"
+								sizes="10px 10px"
+								fill
+								alt="Location Pin"
+							/>
+						</div>
 					</Marker>
 				</Map>
 			) : (
